@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { BrandMark } from "@/components/BrandMark";
 import { MediaFrame } from "@/components/MediaFrame";
 import { OfferingCard } from "@/components/OfferingCard";
 import { offerings } from "@/lib/content";
@@ -16,7 +15,7 @@ export default function HomePage() {
                 variant="arch"
                 label="Singing bowls"
                 aspectRatio="3:4"
-                description="Close, luminous singing bowls in warm gold and copper tones; tactile, quiet, and photographed in natural light."
+                description="Close, luminous singing bowls in warm gold tones; tactile, quiet, and photographed in natural light."
                 altGuidance="Describe the singing bowls and setting actually shown."
               />
               <MediaFrame
@@ -32,24 +31,30 @@ export default function HomePage() {
                 variant="arch"
                 label="Aromatherapy"
                 aspectRatio="3:4"
-                description="Botanical oils, herbs, linen, and warm coastal daylight in the Sacred Bloom palette."
+                description="Botanical oils, herbs, linen, and soft coastal daylight in the Sacred Bloom palette."
                 altGuidance="Describe the oils, herbs, and materials actually shown."
               />
             </div>
           </div>
 
           <div className="hero__brand">
-            <div className="brand-poster">
-              <BrandMark />
+            <div className="brand-logo-wrap">
+              <img
+                className="client-logo"
+                src="/sacred-bloom-logo.webp"
+                alt="Sacred Bloom Wellness sun, lotus, and crescent moon logo"
+                width="240"
+                height="505"
+              />
             </div>
             <h1>Sacred Bloom <em>Wellness.</em></h1>
             <p className="subtitle">
-              Classical yoga, sound, restorative practice, and gatherings in
-              Wilmington and online.
+              Yoga, sound, restorative practice, and gatherings in Wilmington
+              and online.
             </p>
             <p>
-              Explore the practices Raechel teaches, learn what each session
-              includes, and find the right way to join.
+              Explore Rae&apos;s practices, learn what each session includes,
+              and find the right way to join.
             </p>
             <div className="hero__actions">
               <Link className="button button--rose" href="#offerings">
@@ -64,7 +69,7 @@ export default function HomePage() {
 
         <div className="practice-ribbon" aria-label="Ways to practice">
           <span>Learn online</span>
-          <span>Meet in private practice</span>
+          <span>Private practice</span>
           <span>Gather in community</span>
         </div>
       </section>
@@ -75,7 +80,7 @@ export default function HomePage() {
             “Asana is the core which holds it all together, but it is not all
             that exists.”
           </p>
-          <span>Raechel, on Classical Yoga</span>
+          <span>From Rae&apos;s Classical Yoga notes</span>
         </div>
       </section>
 
@@ -90,8 +95,8 @@ export default function HomePage() {
               </p>
             </div>
             <p className="section-note">
-              Hover or focus on a card for a quick description. On mobile, the
-              description stays visible.
+              Desktop cards reveal a short description on hover or focus.
+              Mobile keeps the description visible.
             </p>
           </div>
 
@@ -113,9 +118,9 @@ export default function HomePage() {
               is not all that exists.
             </p>
             <p>
-              Raechel&apos;s practice brings mantra, mudra, pranayama, asana,
-              and meditation back into the same sequence rather than treating
-              yoga as posture alone.
+              This practice brings mantra, mudra, pranayama, asana, and
+              meditation into the same sequence rather than treating yoga as
+              posture alone.
             </p>
             <div className="practice-terms" aria-label="Classical Yoga practices">
               <span>Mantra</span>
