@@ -4,6 +4,7 @@ type Props = {
   altGuidance: string;
   aspectRatio?: string;
   caption?: string;
+  label?: string;
   variant?: "default" | "arch" | "logo";
 };
 
@@ -13,6 +14,7 @@ export function MediaFrame({
   altGuidance,
   aspectRatio = "4:3",
   caption,
+  label = "Image placement",
   variant = "default"
 }: Props) {
   return (
@@ -21,9 +23,10 @@ export function MediaFrame({
       data-asset-id={assetId}
       data-aspect-ratio={aspectRatio}
       data-alt-guidance={altGuidance}
+      data-image-description={description}
     >
       <div className="media-frame__visual">
-        <span>{assetId}</span>
+        <span className="media-frame__label">{label}</span>
       </div>
       <figcaption>
         <strong>Image direction:</strong> {description}
