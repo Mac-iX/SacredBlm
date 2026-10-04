@@ -1,0 +1,308 @@
+/*
+  Sacred Bloom palette correction
+  --------------------------------
+  The site uses Rae's pink/gold logo and the supplied pink-sky/aqua-water
+  references as the palette authority. Dark contrast is navy-charcoal,
+  not green or brown.
+*/
+
+:root {
+  --ink: #2b3145;
+  --ink-deep: #20273a;
+  --ink-soft: #62687b;
+  --paper: #fffafb;
+  --cream: #f8f2ef;
+  --rose-pale: #f6d9e3;
+  --rose: #a34d70;
+  --pink: #ef8caf;
+  --sea: #dff1f3;
+  --aqua: #a8dde2;
+  --ocean: #5aaeba;
+  --sky: #dfe3f5;
+  --sun: #ead49a;
+  --gold: #c3923f;
+  --line: rgba(43, 49, 69, 0.22);
+  --line-strong: rgba(43, 49, 69, 0.46);
+  --shadow: 0 22px 50px rgba(43, 49, 69, 0.09);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.site-header {
+  background:
+    linear-gradient(90deg,
+      #fffafb 0 38%,
+      #fae8ef 70%,
+      #edf5fb 100%);
+}
+
+.wordmark small {
+  display: block;
+  margin-top: 5px;
+  font: 9px/1.2 Arial, Helvetica, sans-serif;
+  letter-spacing: 4px;
+}
+
+.site-footer {
+  background:
+    linear-gradient(120deg, rgba(239,140,175,.12), transparent 36%),
+    var(--ink-deep);
+}
+
+.hero-band {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(239,140,175,.23), transparent 24rem),
+    radial-gradient(circle at 18% 86%, rgba(168,221,226,.26), transparent 28rem),
+    linear-gradient(180deg, #fff9f8 0%, #f7eef1 100%);
+}
+
+.brand-logo-wrap {
+  width: 160px;
+  min-height: 260px;
+  margin: 0 0 1.5rem;
+  display: grid;
+  place-items: center;
+}
+
+.client-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.arch-mosaic {
+  background:
+    linear-gradient(180deg,
+      var(--sky) 0%,
+      var(--rose-pale) 49%,
+      var(--aqua) 100%);
+}
+
+.media-frame__label {
+  border-color: rgba(43,49,69,.2);
+  background: rgba(255,250,251,.9);
+}
+
+.arch-mosaic figure:nth-child(1) .media-frame__visual {
+  background:
+    radial-gradient(ellipse at 50% 72%, rgba(195,146,63,.86) 0 10%, rgba(122,89,52,.28) 11% 14%, transparent 15%),
+    radial-gradient(ellipse at 50% 77%, rgba(195,146,63,.42) 0 20%, transparent 21%),
+    linear-gradient(165deg, #f6d9e3 0 34%, #fff4ed 35% 62%, #a8dde2 100%);
+}
+
+.arch-mosaic figure:nth-child(2) .media-frame__visual {
+  background:
+    conic-gradient(from 22deg at 52% 44%,
+      rgba(255,255,255,.7),
+      rgba(192,205,232,.34),
+      rgba(239,140,175,.58),
+      rgba(255,255,255,.74)),
+    linear-gradient(150deg, #dfe3f5, #f6d9e3 60%, #dff1f3);
+}
+
+.arch-mosaic figure:nth-child(3) .media-frame__visual {
+  background:
+    radial-gradient(circle at 25% 35%, rgba(255,255,255,.86) 0 7%, transparent 8%),
+    radial-gradient(circle at 63% 64%, rgba(195,146,63,.45) 0 8%, transparent 9%),
+    linear-gradient(145deg, #dff1f3 0 45%, #a8dde2 46% 66%, #f6d9e3 100%);
+}
+
+.practice-ribbon span {
+  background: #fffafb;
+}
+
+.voice-band {
+  background:
+    linear-gradient(90deg,
+      #f6d9e3 0%,
+      #ece5f4 50%,
+      #dff1f3 100%);
+}
+
+.offerings-band {
+  background:
+    linear-gradient(180deg,
+      #fbecf1 0%,
+      #eef5fb 35%,
+      #e5f5f5 68%,
+      #fff4ed 100%);
+}
+
+.offering-card--rose { background: #f5dbe4; }
+.offering-card--sea { background: #dff1f3; }
+.offering-card--sky { background: #e4e7f6; }
+.offering-card--sun { background: #f5e8c9; }
+
+.classical-band {
+  background:
+    radial-gradient(circle at 12% 18%, rgba(246,217,227,.76), transparent 20rem),
+    linear-gradient(135deg, #dff1f3 0%, #dcecf5 48%, #dfe3f5 100%);
+}
+
+.classical-feature__copy,
+.product-copy-panel,
+.product-side > .media-frame,
+.product-next,
+.detail-panel {
+  background: rgba(255,250,251,.84);
+}
+
+.practice-terms span {
+  background: rgba(255,250,251,.88);
+}
+
+.classical-feature .media-frame__visual {
+  background:
+    linear-gradient(25deg, transparent 0 40%, rgba(195,146,63,.22) 41% 42%, transparent 43%),
+    radial-gradient(circle at 62% 33%, rgba(246,217,227,.92), transparent 22%),
+    linear-gradient(145deg, #eef7fb, #cfe9ed 48%, #dfe3f5);
+}
+
+.schedule-band {
+  background:
+    linear-gradient(110deg, rgba(239,140,175,.18), transparent 43%),
+    linear-gradient(150deg, #252b42 0%, #303957 100%);
+}
+
+.schedule-preview p,
+.schedule-preview .media-frame figcaption {
+  color: #eef0f7;
+}
+
+.product-shell--rose {
+  background:
+    linear-gradient(135deg, #fbeaf0 0%, #f4d9e3 50%, #e8f4f7 100%);
+}
+
+.product-shell--sea {
+  background:
+    linear-gradient(135deg, #edf8fa 0%, #dff1f3 50%, #f8e9ef 100%);
+}
+
+.product-shell--sky {
+  background:
+    linear-gradient(135deg, #f8eef4 0%, #e4e7f6 52%, #dff1f3 100%);
+}
+
+.product-shell--sun {
+  background:
+    linear-gradient(135deg, #fff8eb 0%, #f4e6c5 52%, #e7f3f6 100%);
+}
+
+.simple-page {
+  background:
+    radial-gradient(circle at 82% 18%, rgba(246,217,227,.7), transparent 18rem),
+    linear-gradient(155deg, #eef7fb 0%, #f8eef4 50%, #fff4ed 100%);
+}
+
+/* Current-site story page */
+
+.about-page {
+  background:
+    linear-gradient(180deg, #fffafb 0%, #f7edf2 52%, #edf7fa 100%);
+}
+
+.about-hero {
+  padding-block: 5.5rem;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.about-copy-panel,
+.about-hero > .media-frame {
+  border: 1px solid var(--line-strong);
+  background: rgba(255,250,251,.84);
+}
+
+.about-copy-panel {
+  padding: clamp(1.6rem, 4vw, 3.4rem);
+}
+
+.about-copy-panel h1 {
+  max-width: 9ch;
+}
+
+.about-lead {
+  font: clamp(1.25rem, 2.2vw, 1.65rem)/1.5 Georgia, "Times New Roman", serif;
+}
+
+.about-hero > .media-frame {
+  padding: 1rem;
+}
+
+.about-hero > .media-frame .media-frame__visual {
+  min-height: 580px;
+  aspect-ratio: 4 / 5;
+  background:
+    radial-gradient(circle at 62% 28%, rgba(239,140,175,.42), transparent 20%),
+    linear-gradient(150deg, #dfe3f5, #dff1f3 55%, #f6d9e3);
+}
+
+.about-path {
+  padding: 6rem 0 7rem;
+  border-top: 1px solid var(--line);
+  background:
+    linear-gradient(115deg, #dff1f3 0%, #e4e7f6 50%, #f6d9e3 100%);
+}
+
+.about-path__grid {
+  display: grid;
+  grid-template-columns: .75fr 1.25fr;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.path-list {
+  border-top: 1px solid var(--line-strong);
+}
+
+.path-list > div {
+  padding: 1.15rem 0;
+  display: grid;
+  grid-template-columns: minmax(130px,.55fr) 1fr;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.path-list strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.path-list span {
+  color: var(--ink-soft);
+}
+
+/* Keep the hand-written cue readable. */
+
+.handwritten,
+.handwritten-note {
+  color: var(--ink-deep);
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
+}
+
+/* W3C AA target for normal text: body copy uses navy/slate on pale surfaces. */
+
+@media (max-width: 900px) {
+  .about-hero,
+  .about-path__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-logo-wrap {
+    width: 130px;
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 640px) {
+  .path-list > div {
+    grid-template-columns: 1fr;
+    gap: .25rem;
+  }
+}
