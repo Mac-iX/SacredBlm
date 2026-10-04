@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | Sacred Bloom Wellness"
   },
   description:
-    "Classical yoga, restorative practices, sound, and community gatherings in Wilmington and online."
+    "Sacred Bloom Wellness: yoga, sound healing, restorative practices, circles, and herbal wellness in Wilmington and online."
 };
 
 export default function RootLayout({
@@ -18,11 +18,14 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header className="site-header">
-          <Link className="wordmark" href="/">Sacred Bloom Wellness</Link>
+          <Link className="wordmark" href="/">
+            Sacred Bloom
+            <small>W E L L N E S S</small>
+          </Link>
           <nav aria-label="Primary navigation">
             <Link href="/#offerings">Offerings</Link>
             <Link href="/gatherings">Gatherings</Link>
-            <Link href="/about">About</Link>
+            <Link href="/about">Meet Rae</Link>
             <Link href="/contact">Contact</Link>
           </nav>
         </header>
