@@ -3,6 +3,7 @@
 
   const A = window.SB_ASSETS;
   const app = document.getElementById("app");
+  let oceanPaused = false;
   const offerings = [
     {
       id: "tantra",
@@ -244,6 +245,8 @@
     const featured = [offerings[0], offerings[1], offerings[2]].map(featuredCard).join("");
     return "<main id='main'>" +
       "<section class='hero-home' aria-label='Welcome to Sacred Bloom' style='--hero-image:url(" + A.hero + ")'>" +
+      "<video class='hero-video' id='hero-ocean' muted loop playsinline preload='none' data-src='./media/ocean-loop.mp4' aria-hidden='true' tabindex='-1'></video>" +
+      "<button class='hero-motion-toggle' id='hero-motion-toggle' type='button' data-action='toggle-ocean' aria-label='Pause ocean animation' hidden>Pause motion</button>" +
       "<div class='hero-inner'><div class='arch-panel'>" + archFrame() + "<div class='arch-content'>" +
       "<h1>A space to soften,<br>reconnect, and bloom.</h1><div class='arch-divider' aria-hidden='true'>" + symbol("lotus") + "</div>" +
       "<h2>The Week Ahead</h2><div class='week-list'>" +
@@ -414,6 +417,41 @@
       "<button class='button' type='submit'>Prepare message <span aria-hidden='true'>→</span></button><div class='form-feedback' role='status' aria-live='polite'></div></form></section></main>";
   }
 
+  function setupOceanMotion() {
+    const video = document.getElementById("hero-ocean");
+    const control = document.getElementById("hero-motion-toggle");
+    if (!video || !control) return;
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced || oceanPaused) {
+      control.hidden = false;
+      control.textContent = "Play motion";
+      control.setAttribute("aria-label", "Play ocean animation");
+      return;
+    }
+    startOcean(video, control);
+  }
+
+  function startOcean(video, control) {
+    if (!video.getAttribute("src")) video.src = video.dataset.src;
+    video.muted = true;
+    video.addEventListener("playing", function () {
+      video.classList.add("is-ready");
+      control.hidden = false;
+      control.textContent = "Pause motion";
+      control.setAttribute("aria-label", "Pause ocean animation");
+    }, { once: true });
+    video.addEventListener("error", function () {
+      video.classList.remove("is-ready");
+      control.hidden = true;
+    }, { once: true });
+    const play = video.play();
+    if (play && play.catch) play.catch(function () {
+      control.hidden = false;
+      control.textContent = "Play motion";
+      control.setAttribute("aria-label", "Play ocean animation");
+    });
+  }
+
   function render() {
     const route = getRoute();
     let content = "";
@@ -451,13 +489,26 @@
     document.body.className = interior ? "page-interior" : "page-home";
     document.body.style.setProperty("--page-wallpaper", 'url("' + wallpaper + '")');
     layout(content, active);
+    setupOceanMotion();
   }
 
   document.addEventListener("click", function (event) {
     const action = event.target.closest("[data-action]");
     if (action) {
       const type = action.getAttribute("data-action");
-      if (type === "toggle-menu") {
+      if (type === "toggle-ocean") {
+        const video = document.getElementById("hero-ocean");
+        if (!video) return;
+        if (video.paused) {
+          oceanPaused = false;
+          startOcean(video, action);
+        } else {
+          oceanPaused = true;
+          video.pause();
+          action.textContent = "Play motion";
+          action.setAttribute("aria-label", "Play ocean animation");
+        }
+      } else if (type === "toggle-menu") {
         const nav = document.getElementById("site-nav");
         const open = nav.classList.toggle("is-open");
         action.setAttribute("aria-expanded", open ? "true" : "false");
