@@ -34,3 +34,11 @@ The Apothecary is a coming-soon page matching the navigation in the reference. T
 - Only the scenery is animated. The arch, cards, logo, and lettering remain live HTML/SVG elements.
 - `media/ocean-loop.mp4` is the silent website loop. The original generated master remains available in the Higgsfield generation result.
 - With reduced motion enabled, the original ocean image displays until the visitor explicitly chooses Play motion.
+
+## Offering copy and navigation refinement — October 24, 2026
+
+The main navigation includes Offerings, Schedule, Tantra, Yoga, Apothecary, Journal, and About, plus Book Now. It collapses to a menu on narrower screens.
+
+The three featured cards now share equal widths and a bounded, reference-based height. The complete arch and all three cards remain within the opening composition on the verified laptop layout.
+
+All seven offering pages now use fuller descriptions edited from the supplied handwritten notes (IMG_2238 through IMG_2245). Personal language and the sequence of each practice are retained. Repeated introductory paragraphs were removed. Intimate opening lines, readable paragraphs, the four-week Tantra outline, and a separate What to expect section give the copy a clearer hierarchy. No prices, credentials, testimonials, or event dates were invented. The existing ocean animation, ornamental arch, original logo, and icon artwork are retained.

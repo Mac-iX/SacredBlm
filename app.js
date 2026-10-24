@@ -88,9 +88,85 @@
       short: "A gentle sequence of tea, quiet, breath, sound, and aromatherapy to make room for restorative rest.",
       lead: "We ease into the process slowly, beginning with herbal tea and time to be together in comfortable silence or conversation. From there, meditation and light breathwork support a gradual settling into rest.",
       group: false,
-      practice: ["A shared cup of herbal tea at the beginning and end", "Meditation and light breathwork", "Tibetan singing-bowl massage, a technique Raechel studied in Nepal", "Energy healing and aromatherapy woven through the session"]
+      practice: ["A shared cup of herbal tea at the beginning and end", "Meditation and light breathwork", "Tibetan singing-bowl massage, a technique studied in Nepal", "Energy healing and aromatherapy woven through the session"]
     }
   ];
+
+  // Edited from the supplied handwritten offering descriptions.
+  // Keep the personal voice, sequence of the practices, and confirmed formats.
+  const offeringStories = {
+    tantra: {
+      invitation: "Bring Tantra into daily life in ways that are sustainable and practical.",
+      detailTitle: "An exploration in four parts",
+      paragraphs: [
+        "A four-part series examining the origins of Tantra, its purpose, how it continues to evolve, and practical ways to bring it into daily life.",
+        "Together, we move from origins and philosophy into energy, practice, and embodiment. Each week opens another part of the tradition, with space to consider how it can be integrated into everyday life."
+      ],
+      format: "A four-week learning series. Explore group dates or ask about a one-on-one."
+    },
+    feminine: {
+      invitation: "We gather for inner alignment, community, and connection with Mother Earth.",
+      detailTitle: "A circle of connection",
+      paragraphs: [
+        "This ceremony blends the traditions of women from around the world.",
+        "This practice weaves together meditation, breathwork, yoga, sound healing, and restorative practices to support release, renewal, and rebalancing.",
+        "The circle meets online monthly and is also offered as a private event for birthdays and special occasions. When you book a private circle, a tea ceremony is included to open our time together."
+      ],
+      format: "Monthly online circles and private gatherings for birthdays or special occasions."
+    },
+    "classical-yoga": {
+      invitation: "Movement, breath, and intention, brought together in meditation.",
+      detailTitle: "Return to the foundations",
+      paragraphs: [
+        "This practice makes space for the wider traditions of yoga, bringing mantra, mudra, pranayama, asana, and meditation into one connected experience.",
+        "We begin each lesson with mantra, working with the vibrations of the voice to awaken the body. We then choose a mudra, a gesture of the hands, to support our intention for the practice. In yogic tradition, mudra works with prana, the life-force energy.",
+        "As we move through the asanas, we become aware of connection through the body and breath. We finish with pranayama, a yogic breathwork practice, before settling into a final meditation together."
+      ],
+      format: "A guided practice of mantra, mudra, movement, breathwork, and meditation."
+    },
+    "yoga-nidra": {
+      invitation: "We invite the body to soften while maintaining a relaxed awareness.",
+      detailTitle: "A practice for deep rest",
+      paragraphs: [
+        "Yoga Nidra, also called yogic sleep, is a guided meditation practiced while lying on your mat in as comfortable a position as you can find. We invite the body to soften while maintaining a relaxed awareness.",
+        "We close our practice with the resonance of Tibetan singing bowls, bells, flutes, and other instruments, supporting a journey toward peace, rest, and reflection.",
+        "This practice is offered individually and in group settings."
+      ],
+      format: "Available as an individual session or a shared group practice."
+    },
+    "yin-yoga": {
+      invitation: "Slow down and settle in.",
+      detailTitle: "A softer way to move",
+      paragraphs: [
+        "In this class, you’ll move through gentle, floor-based postures, holding each one long enough for your body to soften and release.",
+        "Yin yoga brings postures from Hatha yoga together with energetic philosophy and Daoist teachings. This practice explores Yin as a receptive, feminine presence that simply allows, inviting a quieter relationship with movement and stillness.",
+        "Along the way, I offer hands-on adjustments with aromatherapy oils and energy healing, helping you feel supported and more at ease in your body. Ask about the available format and share your preferences for touch and scent before we begin."
+      ],
+      format: "An individual practice with longer-held postures, aromatherapy, and energy work."
+    },
+    "aura-cleansing": {
+      invitation: "Begin in stillness. Make space for sound.",
+      detailTitle: "Sound, grounding, and intention",
+      paragraphs: [
+        "We begin this practice in an upright seated meditation. Once grounded, we work with singing bowls in a sound ritual centered on cleansing the auric field.",
+        "The process moves through three rounds, holding the bowls before each chakra and focusing on tonality and frequency. Within this practice, the intention is to release negative energy and create a sense of clearing.",
+        "Sage or Palo Santo may be used. If you have sensitivities to smoke, please let me know before we begin."
+      ],
+      format: "A seated, individual practice with three rounds of singing-bowl sound."
+    },
+    "ritual-of-rest": {
+      invitation: "We ease our way into this process slowly.",
+      detailTitle: "Time to simply be together",
+      paragraphs: [
+        "We begin with a shared cup of herbal tea and time to simply be together. We may sit in comfortable silence or share conversation, allowing room to settle before the practice begins.",
+        "From there, we move into meditation and light breathwork before settling onto the massage table for the heart of the session: Tibetan singing-bowl massage. I studied this technique in Nepal, working with sound and vibration as tools for rejuvenating rest.",
+        "The session then flows into energy healing, with attention to areas of the body that may welcome a little extra care. Aromatherapy is woven throughout to engage the senses and maintain an intentional atmosphere.",
+        "As we gradually return to the present moment, another cup of tea offers time to ground and close the practice."
+      ],
+      format: "A personal ritual of tea, meditation, Tibetan singing-bowl massage, energy work, and aromatherapy."
+    }
+  };
+  offerings.forEach(function (item) { Object.assign(item, offeringStories[item.id]); });
 
   const events = [
     {
@@ -183,7 +259,8 @@
       ["tantra", "Tantra", "#/offering/tantra"],
       ["yoga", "Yoga", "#/offering/classical-yoga"],
       ["apothecary", "Apothecary", "#/apothecary"],
-      ["journal", "Journal", "#/journal"]
+      ["journal", "Journal", "#/journal"],
+      ["about", "About", "#/about"]
     ];
     return "<header class='site-header'><div class='header-inner'>" +
       "<a class='brand' href='#/' aria-label='Sacred Bloom home'><span class='brand-seal'><img src='" + A.logo + "' alt=''></span>" +
@@ -282,19 +359,22 @@
   }
 
   function offeringPage(item) {
-    const introTitle = item.id === "tantra" ? "A four-part series" : "The practice";
     const practiceList = item.practice.map(function (line) { return "<li>" + line + "</li>"; }).join("");
+    const story = item.paragraphs.map(function (line) { return "<p>" + line + "</p>"; }).join("");
     const heroIcon = item.icon ? "<img src='" + A.icons[item.icon] + "' alt=''>" : "<span class='offering-mark' aria-hidden='true'>" + item.mark + "</span>";
     const groupButton = item.group
-      ? "<a class='button' href='" + scheduleHref("group", item.id) + "'>See group dates <span aria-hidden='true'>→</span></a>"
+      ? "<a class='button' href='" + scheduleHref("group", item.id) + "'>Explore group dates <span aria-hidden='true'>→</span></a>"
       : "";
-    return "<main id='main'><section class='page-hero' style='--page-hero-image:url(" + (item.id === "ritual-of-rest" || item.id === "aura-cleansing" ? A.wallpaperB : A.wallpaperA) + ")'><div class='wrap'>" +
-      "<h1>" + item.title + (item.subtitle ? "<br><span>" + item.subtitle + "</span>" : "") + "</h1><p>" + item.lead + "</p></div></section>" +
-      "<div class='wrap detail-content'><article class='content-panel'><h2>" + introTitle + "</h2><p>" + item.lead + "</p>" +
-      weekMarkup(item) + "<h2>" + (item.weeks ? "What the practice includes" : "What to expect") + "</h2><ul>" + practiceList + "</ul>" +
-      "<p>Session length, location, and availability are confirmed with Raechel when you request a place.</p></article>" +
-      "<aside class='detail-aside'>" + heroIcon + "<h2>" + item.title + "</h2><p>" + (item.group ? "Group dates are posted once confirmed." : "Ask Raechel which format is available for this practice.") + "</p>" +
-      groupButton + "<a class='button button-outline' href='" + scheduleHref("session", item.id) + "'>Request a virtual one-on-one</a>" +
+    return "<main id='main'><section class='page-hero offering-hero' style='--page-hero-image:url(" + (item.id === "ritual-of-rest" || item.id === "aura-cleansing" ? A.wallpaperB : A.wallpaperA) + ")'><div class='wrap'>" +
+      "<a class='offering-back' href='#/offerings'><span aria-hidden='true'>←</span> All offerings</a>" +
+      "<h1>" + item.title + (item.subtitle ? "<span>" + item.subtitle + "</span>" : "") + "</h1><p>" + item.short + "</p></div></section>" +
+      "<div class='wrap detail-content offering-detail'><article class='content-panel offering-story'>" +
+      "<p class='offering-invitation'>" + item.invitation + "</p><div class='story-divider' aria-hidden='true'>" + symbol("lotus") + "</div>" +
+      "<h2>" + item.detailTitle + "</h2>" + story + weekMarkup(item) +
+      "<section class='practice-includes'><h2>What to expect</h2><ul>" + practiceList + "</ul></section>" +
+      "<p class='session-details'>Session length, location, and availability are confirmed when you request a place.</p></article>" +
+      "<aside class='detail-aside'>" + heroIcon + "<h2>Join the practice</h2><p>" + item.format + "</p>" +
+      groupButton + "<a class='button button-outline' href='" + scheduleHref("session", item.id) + "'>Request a one-on-one</a>" +
       "<p class='note'>A date request is not a confirmed booking. This preview form does not send or store submissions.</p></aside></div></main>";
   }
 
@@ -464,7 +544,7 @@
       content = offeringsPage(); active = "offerings"; title = "Offerings | Sacred Bloom";
     } else if (route.path.indexOf("offering/") === 0) {
       const item = currentOffering(route.path.split("/")[1]);
-      content = item ? offeringPage(item) : offeringsPage(); active = "offerings"; title = item ? item.title + " | Sacred Bloom" : "Offerings | Sacred Bloom";
+      content = item ? offeringPage(item) : offeringsPage(); active = item && item.id === "tantra" ? "tantra" : item && item.id === "classical-yoga" ? "yoga" : "offerings"; title = item ? item.title + " | Sacred Bloom" : "Offerings | Sacred Bloom";
       wallpaper = item && (item.id === "ritual-of-rest" || item.id === "aura-cleansing") ? A.wallpaperB : A.wallpaperA;
     } else if (route.path === "schedule") {
       content = schedulePage(route.query); active = "schedule"; title = "Schedule | Sacred Bloom"; wallpaper = A.wallpaperA;

@@ -643,6 +643,63 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
 
+/* Offering descriptions keep the rhythm and intimacy of the handwritten notes. */
+.site-nav { gap: clamp(12px, 1.35vw, 22px); }
+.site-nav a { font-size: clamp(16px, 1.4vw, 22px); }
+.offering-hero { min-height: 0; padding: 34px 0 46px; }
+.offering-back { display: inline-flex; gap: 9px; align-items: center; margin-bottom: 23px; color: #70584b; font-size: 14px; text-decoration: none; }
+.offering-back:hover { color: var(--card-rose); }
+.offering-hero h1 { max-width: 1000px; margin-bottom: 19px; font-size: clamp(42px, 4.8vw, 68px); line-height: 1.04; }
+.offering-hero h1 span { display: block; margin-top: 12px; color: #995f6d; font-size: clamp(23px, 2.6vw, 36px); line-height: 1.2; letter-spacing: -.025em; }
+.offering-hero p { max-width: 60ch; color: #6c544c; font: 400 clamp(20px, 2vw, 25px)/1.45 var(--serif); }
+.offering-detail { grid-template-columns: minmax(0, 1fr) 310px; gap: 32px; padding-top: 42px; }
+.offering-story { padding: clamp(26px, 4.2vw, 54px); }
+.offering-story p { max-width: 62ch; font-size: 17px; line-height: 1.85; color: #62514b; margin: 0 0 20px; }
+.offering-story .offering-invitation { max-width: 26ch; margin: 0 0 23px; color: #934b60; font: 500 clamp(29px, 3vw, 39px)/1.18 var(--serif); letter-spacing: -.025em; }
+.story-divider { display: flex; align-items: center; gap: 15px; color: #9c7d69; margin-bottom: 32px; }
+.story-divider::after { content: ''; height: 1px; flex: 1; background: #e0ccbf; }
+.story-divider svg { width: 29px; height: 29px; }
+.offering-story h2 { margin: 30px 0 16px; color: #76574b; font-size: 31px; }
+.offering-story .week-module { padding: 20px 23px; margin: 14px 0; background: #fbf1ec; border-left-color: #b9808d; }
+.offering-story .week-module h3 { font-size: 24px; color: #854d5c; }
+.offering-story .week-module p { margin: 0; font-size: 16px; line-height: 1.7; }
+.practice-includes { margin-top: 32px; padding-top: 2px; border-top: 1px solid #e0ccbf; }
+.practice-includes ul { padding-left: 20px; font-size: 16px; line-height: 1.7; color: #62514b; }
+.practice-includes li { margin: 11px 0; padding-left: 5px; }
+.practice-includes li::marker { color: #ac7682; }
+.offering-story .session-details { margin: 24px 0 0; font-size: 14px; color: #806b61; }
+.offering-detail .detail-aside { padding: 28px 23px; }
+.offering-detail .detail-aside h2 { color: #854d5c; }
+.offering-detail .detail-aside p { font-size: 15px; line-height: 1.65; color: #70584b; }
+.offering-detail .detail-aside .note { margin-top: 20px; font-size: 12px; color: #806f65; }
+@media (max-width: 1100px) and (min-width: 721px) {
+  .nav-toggle { display: grid; place-items: center; flex: 0 0 44px; }
+  .nav-toggle .bars, .nav-toggle .bars::before, .nav-toggle .bars::after { display: block; width: 19px; height: 2px; border-radius: 2px; background: currentColor; }
+  .nav-toggle .bars { position: relative; }
+  .nav-toggle .bars::before, .nav-toggle .bars::after { position: absolute; left: 0; content: ''; }
+  .nav-toggle .bars::before { top: -6px; }
+  .nav-toggle .bars::after { top: 6px; }
+  .site-nav { position: absolute; top: 100%; left: 0; right: 0; display: none; flex-direction: column; align-items: stretch; padding: 15px 5% 24px; gap: 0; background: #fffdf9; border-bottom: 1px solid #d7bead; box-shadow: 0 18px 24px #56402b15; }
+  .site-nav.is-open { display: flex; }
+  .site-nav a { font-size: 23px; padding: 8px 4px; }
+  .site-nav .nav-cta { width: 100%; min-height: 48px; flex-direction: row; gap: 10px; margin-top: 10px; }
+  .offering-detail { grid-template-columns: minmax(0, 1fr) 275px; gap: 22px; }
+}
+@media (max-width: 720px) {
+  .site-nav a { font-size: 23px; }
+  .offering-hero { padding: 27px 0 34px; }
+  .offering-hero h1 { font-size: clamp(39px, 10.5vw, 52px); }
+  .offering-hero h1 span { font-size: 25px; }
+  .offering-hero p { font-size: 22px; }
+  .offering-back { margin-bottom: 19px; }
+  .offering-detail { grid-template-columns: 1fr; gap: 23px; padding-block: 27px 55px; }
+  .offering-story { padding: 26px 23px; }
+  .offering-story .offering-invitation { font-size: 31px; }
+  .offering-story h2 { font-size: 29px; }
+  .offering-story p { font-size: 16px; line-height: 1.8; }
+  .offering-detail .detail-aside { position: static; }
+}
+
 /* The quieter pages carry the same rose, parchment and antique taupe palette. */
 body { background: #fffaf7; }
 body.page-interior::before { opacity: .7; }
@@ -802,6 +859,7 @@ body.page-interior::after { background: rgba(255,250,248,.4); }
 body { min-width: 0; }
 .header-inner { height: var(--site-header-height); min-height: 0; }
 .hero-home {
+  --featured-height: clamp(160px, 15vw, 230px);
   height: calc(100svh - var(--site-header-height));
   min-height: 510px;
   max-height: 1100px;
@@ -813,28 +871,29 @@ body { min-width: 0; }
 .hero-inner { position: relative; z-index: 1; }
 .arch-panel {
   left: 3.8%; top: 1.5%;
-  height: auto; width: min(41vw, 69.56cqh); max-width: none;
+  height: auto; width: min(41vw, calc((100cqh - var(--featured-height) - 7cqh) * 1.07)); max-width: none;
+  container-type: inline-size;
   aspect-ratio: 610 / 570;
 }
-.arch-panel h1 { font-size: min(3.38vw, 5.85cqh); }
-.arch-divider { height: min(2.2vw, 3.85cqh); margin: 2.2cqh -1% 1cqh; color: #8b7060; }
-.arch-divider svg { width: min(2.3vw, 4cqh); height: min(2.3vw, 4cqh); }
-.arch-panel h2 { font-size: min(2.5vw, 4.3cqh); margin-bottom: 1.65cqh; color: var(--card-taupe); }
-.week-list { gap: .6cqh; }
-.week-list a { font-size: min(1.9vw, 3.25cqh); gap: min(1.6vw, 2.7cqh); color: var(--card-taupe); }
-.week-symbol { flex-basis: min(3.8vw, 6.5cqh); width: min(3.8vw, 6.5cqh); height: min(2.85vw, 4.9cqh); }
-.featured-wrap { top: auto; bottom: 4%; height: 26.5%; }
-.featured-grid { height: 100%; }
-.featured-card { height: 100%; padding: .7cqh 1vw 1cqh; background: #fffaf6; border-color: #a68a77; outline-color: #b29a87; }
-.featured-card img { width: min(10.6vw, 18.5cqh); height: 14.6cqh; filter: brightness(.53) saturate(.8) contrast(1.08); }
-.featured-card h3 { color: var(--card-rose); font-size: min(2.65vw, 4.55cqh); }
-.featured-card p { color: var(--card-taupe); font-size: min(1.25vw, 2.15cqh); }
-.featured-feminine img { width: min(9.5vw, 16.4cqh); height: 12.4cqh; margin-bottom: .4cqh; }
-.featured-feminine h3 { font-size: min(2.3vw, 3.95cqh); }
-.featured-feminine p { margin-top: .8cqh; }
-.featured-classical-yoga img { width: min(9vw, 15.5cqh); height: 14.2cqh; }
-.featured-classical-yoga h3 { color: var(--card-taupe); font-size: min(1.2vw, 2.05cqh); }
-.featured-classical-yoga p { color: var(--card-rose); font-size: min(2.65vw, 4.55cqh); }
+.arch-panel h1 { font-size: 8.28cqw; }
+.arch-divider { height: 5.4cqw; margin: 3.7cqw -1% 1.8cqw; color: #8b7060; }
+.arch-divider svg { width: 5.6cqw; height: 5.6cqw; }
+.arch-panel h2 { font-size: 6.13cqw; margin-bottom: 2.7cqw; color: var(--card-taupe); }
+.week-list { gap: 1cqw; }
+.week-list a { font-size: 4.66cqw; gap: 3.9cqw; color: var(--card-taupe); }
+.week-symbol { flex-basis: 9.3cqw; width: 9.3cqw; height: 7cqw; }
+.featured-wrap { top: auto; bottom: 3%; height: var(--featured-height); max-width: 1380px; left: 50%; transform: translateX(-50%); }
+.featured-grid { height: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 1.2vw, 20px); }
+.featured-card { container-type: inline-size; height: 100%; padding: 8px 12px 10px; background: #fffaf6; border-color: #a68a77; outline-color: #b29a87; }
+.featured-card img { width: min(10.6vw, 145px); height: 55%; filter: brightness(.53) saturate(.8) contrast(1.08); }
+.featured-card h3 { color: var(--card-rose); font-size: clamp(21px, 8.3cqw, 38px); }
+.featured-card p { color: var(--card-taupe); font-size: clamp(10px, 3.9cqw, 16px); }
+.featured-feminine img { width: min(9.5vw, 132px); height: 48%; margin-bottom: 4px; }
+.featured-feminine h3 { max-width: 80%; font-size: clamp(21px, 7.6cqw, 34px); }
+.featured-feminine p { margin-top: 5px; }
+.featured-classical-yoga img { width: min(9vw, 125px); height: 54%; }
+.featured-classical-yoga h3 { color: var(--card-taupe); font-size: clamp(10px, 3.7cqw, 16px); }
+.featured-classical-yoga p { color: var(--card-rose); font-size: clamp(21px, 8.3cqw, 38px); }
 .offering-mark { color: var(--card-taupe); }
 .offering-mark img, .detail-aside > img { filter: brightness(.53) saturate(.8) contrast(1.08); }
 .offering-card h3 { color: var(--card-rose); }
@@ -861,7 +920,7 @@ body { min-width: 0; }
   .week-list { gap: 1.2cqw; margin-left: 4%; }
   .week-list a { font-size: 4.8cqw; gap: 3cqw; }
   .week-symbol { flex-basis: 8.7cqw; width: 8.7cqw; height: 7.5cqw; }
-  .featured-wrap { position: relative; left: auto; top: auto; bottom: auto; width: calc(100% - 32px); max-width: 490px; height: auto; margin: 0 auto; }
+  .featured-wrap { position: relative; left: auto; top: auto; bottom: auto; width: calc(100% - 32px); max-width: 490px; height: auto; margin: 0 auto; transform: none; }
   .featured-grid { grid-template-columns: 1fr; gap: 8px; }
   .featured-card { display: grid; grid-template-columns: 82px 1fr; height: clamp(70px, 11.8svh, 100px); padding: 7px 12px; border-width: 2px; border-radius: 10px; }
   .featured-card img, .featured-feminine img, .featured-classical-yoga img { width: 75px; height: clamp(53px, 9.2svh, 78px); margin: 0; }
