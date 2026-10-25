@@ -1,44 +1,45 @@
-# Sacred Bloom Wellness site test
+# Sacred Bloom Wellness test site
 
-A dependency-free static website prototype built from the supplied visual references, logo, offering icons, and handwritten offering notes.
+A static website built from the supplied visual reference, original logo, offering icons, handwritten descriptions, and approved ocean motion. The current test remains owner-private.
 
-## Preview locally
+## Build and preview
 
-From this folder, run:
+No dependencies need to be installed. Use Node to generate the readable pages:
 
-    python -m http.server 8000
+    node build-site.cjs
+    python -m http.server 8000 --directory dist
 
-Then open http://localhost:8000.
+Then open http://localhost:8000/. The build validates every internal page link, per-page metadata, structured data, and the seven FAQ entries.
 
-The site uses hash routes for the home page, offering detail pages, event descriptions, schedule, about, journal, and contact. Images are embedded in assets-data.js so the test build stays self-contained.
+The default canonical origin is the current private Site preview. When preparing a production build for the primary domain, rebuild with the actual destination:
 
-## Before live bookings
+    SITE_URL=https://sacredbloomwellness.com node build-site.cjs
 
-The calendar collects a preferred date only. Forms do not send or store submissions, and contributions are not processed. Connect Raechel’s booking calendar, registration destination, contact method, and donation link before accepting live requests. Confirm event dates and the travel locations Raechel wants to publish.
+Deployment uses the generated `dist/` directory. The hosting manifest retains the existing Sites project. The source is also synchronized to the `codex/sacred-bloom-wellness-test` branch of Mac-iX/SacredBlm.
 
-The Google Doc referenced in the build request was not included in the provided file set. Copy edits in this prototype use the supplied image notes.
+## Current experience
 
-## Visual reference rebuild
+- Eighteen readable HTML pages, including seven offerings, About, Schedule, Journal, Contact, and the Apothecary introduction. Essential page text and links are present before JavaScript runs.
+- Existing hash links remain compatible; new links use normal page URLs.
+- Pink hues, cream panels, taupe accents, and darker copy. The ornamental arch aligns with the first card below it; the composition is checked at laptop and phone sizes.
+- `media/pink-flow.jpg` is the exact supplied smooth wallpaper. Both interior wallpaper slots now use it. The previous textured wallpaper is removed from the published assets.
+- `media/sacred-bloom-logo.png` is the supplied transparent original, used in the header, footer, About emblem, and favicon. No replacement logo was generated.
+- Seven practical FAQ comparisons and booking-format questions at the bottom of Home, with contextual links to offerings. No medical FAQ content, fabricated policies, or recipe details.
+- Lightweight card hints on hover and keyboard focus, with native keyboard-accessible FAQ disclosures.
+- Unique page titles and descriptions, canonical links, Organization/WebSite/AboutPage/Person structured data where applicable, and a sitemap. No unsupported review, qualification, pricing, or FAQ schema is added.
 
-The landing composition follows the supplied 1500 × 1000 reference: a 141 px header, unobscured ocean crop, an ornamental SVG arch with live text and links, and three live offering cards positioned within the ocean scene. The opening hero now fits the arch and all three cards within common desktop, laptop, and phone viewports. Mobile uses compact horizontal cards beneath the arch. No complete landing-page screenshot is rendered as an asset.
+## Content sources
 
-Cormorant Garamond and Allura are subsetted and embedded in fonts.css, with their SIL Open Font Licenses in FONT-LICENSES.txt. The travel map uses public-domain Natural Earth land geometry distributed by world-atlas (https://github.com/topojson/world-atlas). Fonts, images, and the ocean video are served with the site.
+Offering descriptions use the supplied handwritten notes (IMG_2238 through IMG_2245). The About story and travel references are grounded in the client's published bio at https://sacredbloomwellness.com/, checked October 24, 2026. The current site identifies Appalachian origins, Southern California, yoga study in India, plant traditions in Peru, and sound work in Nepal. Wilmington comes from the supplied project brief. No dates, certifications, testimonials, or experience totals were invented.
 
-The Apothecary is a coming-soon page matching the navigation in the reference. The hero includes an animated ocean background with a static-image fallback, a pause/play control, and respect for the reduced-motion setting.
+The world map uses public-domain Natural Earth geometry distributed by world-atlas. Embedded Cormorant Garamond and Allura licenses are in FONT-LICENSES.txt.
 
-## Ocean motion and contrast update — October 22, 2026
+## Ocean motion
 
-- Full arch and all three cards remain visible in the opening hero; verified at 1366 × 768, 390 × 844, and 320 × 568.
-- Cream cards use dark rose (#99465e) titles and dark taupe (#70584b) details. Supplied icon artwork is preserved and darkened using CSS.
-- Higgsfield MiniMax H3 generated one 8-second 2K ocean-and-cloud animation from the existing clean ocean crop. Job: dcf92a24-00cf-438f-9235-447843eee473. Quoted cost: 16 credits.
-- Only the scenery is animated. The arch, cards, logo, and lettering remain live HTML/SVG elements.
-- `media/ocean-loop.mp4` is the silent website loop. The original generated master remains available in the Higgsfield generation result.
-- With reduced motion enabled, the original ocean image displays until the visitor explicitly chooses Play motion.
+The silent `media/ocean-loop.mp4` runs at 2528 × 1440. Higgsfield MiniMax H3 produced the original eight-second clip from the existing clean ocean crop; job dcf92a24-00cf-438f-9235-447843eee473. A soft wrap crossfade creates the website loop. Only water and clouds move. The arch, cards, logo, and type remain live page elements. Reduced-motion visitors get the still image unless they choose Play motion.
 
-## Offering copy and navigation refinement — October 24, 2026
+## Details still being finalized
 
-The main navigation includes Offerings, Schedule, Tantra, Yoga, Apothecary, Journal, and About, plus Book Now. It collapses to a menu on narrower screens.
+The calendar is a preferred-date preview. Forms do not send or store requests, and donations are not processed. Connect confirmed booking, contact, contribution, and group joining destinations before accepting registrations.
 
-The three featured cards now share equal widths and a bounded, reference-based height. The complete arch and all three cards remain within the opening composition on the verified laptop layout.
-
-All seven offering pages now use fuller descriptions edited from the supplied handwritten notes (IMG_2238 through IMG_2245). Personal language and the sequence of each practice are retained. Repeated introductory paragraphs were removed. Intimate opening lines, readable paragraphs, the four-week Tantra outline, and a separate What to expect section give the copy a clearer hierarchy. No prices, credentials, testimonials, or event dates were invented. The existing ocean animation, ornamental arch, original logo, and icon artwork are retained.
+The Apothecary introduces planned teas and recipe access. Product contents, prices, access terms, checkout, fulfillment, and sourcing details await the client's decisions. No inventory, sales flow, affiliate arrangement, or recipe content has been invented.

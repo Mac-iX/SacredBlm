@@ -643,6 +643,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
 
+
+
 /* Offering descriptions keep the rhythm and intimacy of the handwritten notes. */
 .site-nav { gap: clamp(12px, 1.35vw, 22px); }
 .site-nav a { font-size: clamp(16px, 1.4vw, 22px); }
@@ -947,3 +949,96 @@ body { min-width: 0; }
   .featured-card, .week-list a { transition: none; }
   .featured-card:hover { transform: none; }
 }
+
+/* Smooth pink fields, readable taupe copy, and a broader arch aligned to its card. */
+:root { --ink: #402f29; --muted: #57443b; --card-taupe: #574135; --card-rose: #873c54; --rose-dark: #873c54; }
+.hero-inner { width: min(90%, 1380px); margin-inline: auto; }
+.arch-panel { left: calc(((100% - 2 * clamp(12px, 1.2vw, 20px)) / 3) * -40 / 530); width: calc(((100% - 2 * clamp(12px, 1.2vw, 20px)) / 3) * 610 / 530); aspect-ratio: 610 / 530; max-height: 65%; }
+.arch-content { color: #352820; }
+.arch-panel h1 { color: #352820; font-weight: 600; font-size: 8cqw; letter-spacing: -.04em; }
+.arch-panel h2 { color: #574135; font-weight: 600; }
+.week-list a { color: #574135; font-weight: 600; }
+.arch-divider, .week-symbol { color: #70513e; }
+.site-nav a, .brand-tagline { color: #6a4d3d; }
+.page-hero h1, .section-title, .section-heading-row h2, .content-panel h2, .content-panel h3, .map-copy h2 { color: #563d32; }
+.page-hero p, .section-lede, .offering-story p, .content-panel p, .content-panel li, .practice-includes ul, .offering-card p, .map-copy p, .map-caption, .about-card p, .journal-card p { color: #4c3931; }
+.offering-story .offering-invitation { color: #873c54; }
+.offering-hero h1 span { color: #824357; }
+.offering-story .session-details, .offering-detail .detail-aside p, .offering-detail .detail-aside .note, .detail-aside .note { color: #57443b; }
+.text-link, .card-link, .button-outline { color: #704633; }
+.site-footer, .footer-brand span, .footer-links a, .footer-note { color: #61493b; }
+.welcome-copy p, .gather-inner p { color: #604537; }
+.map-label { fill: #654738; }
+.prototype-note { color: #64483b; }
+.card-hint { position: absolute; z-index: 4; bottom: calc(100% + 10px); left: 50%; display: flex; align-items: center; gap: 13px; padding: 9px 13px; border: 1px solid #c9ab98; border-radius: 7px; background: #fffaf6; color: #50382c; font: 500 13px/1.2 var(--sans); white-space: nowrap; opacity: 0; transform: translate(-50%, 4px); pointer-events: none; transition: opacity .18s, transform .18s; box-shadow: 0 5px 20px #513a2a1c; }
+.featured-card:hover .card-hint, .featured-card:focus-visible .card-hint { opacity: 1; transform: translate(-50%, 0); }
+.featured-card:focus-visible { outline: 3px solid #873c54; outline-offset: 4px; }
+.faq-section { background: #fffaf6; border-top: 1px solid #dfc7b9; scroll-margin-top: 20px; }
+.faq-layout { display: grid; grid-template-columns: .8fr 1.4fr; gap: 70px; align-items: start; }
+.section-kicker { margin: 0 0 16px; color: #795344; font-size: 13px; letter-spacing: .15em; text-transform: uppercase; }
+.faq-intro h2 { margin: 0 0 22px; color: #563d32; font: 500 clamp(38px, 4vw, 57px)/1.03 var(--serif); letter-spacing: -.025em; }
+.faq-intro > p:last-child { max-width: 28ch; color: #57443b; font-size: 16px; line-height: 1.8; }
+.faq-item { border-top: 1px solid #d8bdad; }
+.faq-item:last-child { border-bottom: 1px solid #d8bdad; }
+.faq-item summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 23px 0; color: #563d32; list-style: none; cursor: pointer; font: 600 25px/1.2 var(--serif); }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary > span { color: #8a475b; font: 400 25px/1 var(--sans); transition: transform .18s; }
+.faq-item[open] summary > span { transform: rotate(45deg); }
+.faq-item summary:focus-visible { outline: 2px solid #873c54; outline-offset: 5px; }
+.faq-answer { padding: 0 30px 24px 0; }
+.faq-answer p { margin: 0; color: #4c3931; font-size: 16px; line-height: 1.85; }
+.faq-answer a { color: #873c54; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.about-hero { min-height: 0; padding-block: 45px 56px; }
+.about-hero h1 { margin-block: 0 20px; }
+.about-hero > .wrap > p:last-child { max-width: 57ch; }
+.about-story-section { background: #fffcf8; }
+.about-story-grid { display: grid; grid-template-columns: 1.5fr .7fr; align-items: center; gap: 90px; }
+.about-story h2 { margin: 0 0 25px; color: #873c54; font: 500 clamp(40px, 4.2vw, 61px)/1.05 var(--serif); }
+.about-story > p:not(.section-kicker) { max-width: 61ch; color: #4c3931; font-size: 18px; line-height: 1.85; margin: 0 0 22px; }
+.about-brand { display: grid; justify-items: center; gap: 20px; padding: 20px 25px 30px; border: 1px solid #cfb09a; border-radius: 150px 150px 12px 12px; background: #fff7f0; }
+.about-brand img { display: block; width: 220px; height: 250px; object-fit: contain; }
+.about-brand p { margin: 0; color: #704d3b; text-align: center; font: 400 27px/1.1 'Allura', cursive; }
+.about-approach { background: linear-gradient(110deg, #fff6eef0, #fff1e9ad), var(--band-image) center/cover; }
+.about-approach-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 80px; align-items: start; }
+.about-approach h2, .about-next h2 { margin: 0 0 22px; color: #563d32; font: 500 clamp(34px, 3.8vw, 49px)/1.1 var(--serif); }
+.about-approach p, .about-next p { color: #4c3931; font-size: 17px; line-height: 1.8; }
+.about-links { display: grid; margin-top: 25px; }
+.about-links a { display: flex; justify-content: space-between; padding: 15px 0; border-top: 1px solid #c9aa96; text-decoration: none; color: #873c54; font: 500 24px/1.2 var(--serif); }
+.about-facts { margin: 0; border-top: 1px solid #c9aa96; }
+.about-facts > div { padding: 20px 0; border-bottom: 1px solid #c9aa96; }
+.about-facts dt { margin-bottom: 8px; color: #6c4d3d; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+.about-facts dd { margin: 0; color: #4c3931; font-size: 16px; line-height: 1.7; }
+.about-next { background: #fff9f4; }
+.apothecary-page > div { max-width: 650px; }
+.apothecary-page h1 { color: #873c54; }
+.apothecary-page p { color: #5b4135; }
+@media (max-width: 1000px) { .faq-layout { gap: 35px; } .about-story-grid, .about-approach-grid { gap: 40px; } }
+@media (max-width: 720px) {
+  .hero-inner, .featured-wrap { width: calc(100% - 52px); max-width: 490px; }
+  .arch-panel { left: auto; width: calc(100% * 610 / 530); max-height: 44svh; margin-left: calc(100% * -40 / 530); aspect-ratio: 610 / 530; }
+  .arch-content { inset: 26% 15.4% 5%; }
+  .arch-panel h1 { font-size: 8cqw; }
+  .arch-panel h2 { font-size: 5.8cqw; }
+  .week-list a { font-size: 4.5cqw; }
+  .week-list { margin-left: 3%; }
+  .faq-layout, .about-story-grid, .about-approach-grid { grid-template-columns: 1fr; gap: 28px; }
+  .faq-intro h2 br { display: none; }
+  .faq-intro > p:last-child { max-width: 40ch; }
+  .faq-item summary { font-size: 24px; padding-block: 20px; }
+  .faq-answer { padding-right: 8px; }
+  .about-story > p:not(.section-kicker) { font-size: 16px; }
+  .about-brand { width: min(100%, 300px); margin-inline: auto; }
+  .about-brand img { height: 220px; }
+  .about-hero { padding-block: 33px 40px; }
+}
+@media (max-width: 370px) {
+  .hero-home { padding-top: 6px; }
+  .arch-panel { max-height: 42svh; }
+  .arch-content { inset: 24% 15.4% 5%; }
+  .arch-divider { margin-block: 2.5cqw 1.5cqw; }
+  .arch-panel h2 { font-size: 5.7cqw; margin-bottom: 2cqw; }
+  .week-list { gap: .7cqw; }
+  .featured-grid { gap: 7px; }
+}
+@media (hover: none) { .card-hint { display: none; } }
+@media (prefers-reduced-motion: reduce) { .card-hint, .faq-item summary > span { transition: none; } }
