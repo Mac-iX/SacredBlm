@@ -1042,3 +1042,45 @@ body { min-width: 0; }
 }
 @media (hover: none) { .card-hint { display: none; } }
 @media (prefers-reduced-motion: reduce) { .card-hint, .faq-item summary > span { transition: none; } }
+
+/* The arch and cards occupy separate rows in normal flow. A short viewport
+   can increase the scene's height, but cannot push one row over the other. */
+.hero-home {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  row-gap: 20px;
+  height: auto;
+  min-height: calc(100svh - var(--site-header-height));
+  max-height: none;
+  padding: 12px 0 20px;
+  container-type: inline-size;
+}
+.hero-inner { position: relative; height: auto; min-height: 0; align-self: start; }
+.arch-panel {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: calc(((100% - 2 * clamp(12px, 1.2vw, 20px)) / 3) * 610 / 530);
+  height: auto;
+  max-height: none;
+  aspect-ratio: 610 / 530;
+  margin: 0 0 0 calc(((100% - 2 * clamp(12px, 1.2vw, 20px)) / 3) * -40 / 530);
+}
+.featured-wrap {
+  position: relative;
+  inset: auto;
+  width: min(90%, 1380px);
+  height: clamp(160px, 14.3vw, 220px);
+  margin: 0 auto;
+  transform: none;
+  align-self: end;
+}
+.featured-card:hover { transform: none; }
+.card-hint { top: 8px; right: 10px; bottom: auto; left: auto; transform: none; padding: 5px 8px; font-size: 11px; }
+.featured-card:hover .card-hint, .featured-card:focus-visible .card-hint { transform: none; }
+@media (max-width: 720px) {
+  .hero-home { row-gap: 20px; }
+  .hero-inner, .featured-wrap { width: calc(100% - 52px); max-width: 490px; }
+  .arch-panel { width: calc(100% * 610 / 530); margin-left: calc(100% * -40 / 530); }
+  .featured-wrap { height: auto; }
+}

@@ -43,3 +43,9 @@ The silent `media/ocean-loop.mp4` runs at 2528 × 1440. Higgsfield MiniMax H3 pr
 The calendar is a preferred-date preview. Forms do not send or store requests, and donations are not processed. Connect confirmed booking, contact, contribution, and group joining destinations before accepting registrations.
 
 The Apothecary introduces planned teas and recipe access. Product contents, prices, access terms, checkout, fulfillment, and sourcing details await the client's decisions. No inventory, sales flow, affiliate arrangement, or recipe content has been invented.
+
+## Header separation fix — October 25, 2026
+
+The arch and featured cards now occupy separate CSS Grid rows in normal flow. Absolute card positioning, height caps, and the hover lift no longer allow cards to cover the arch. There is at least 20 px between the full arch/text bounds and the first card. Card hints stay inside cards.
+
+Browser geometry checks passed at 1920×1080, 1440×900, 1366×768, 1280×720, 1024×768, 900×450, 768×1024, 390×844, and 320×568. At every checked size, the complete arch and all three cards are contained in the ocean scene, with no overlap or horizontal overflow. Short screens may scroll vertically through the scene rather than compressing or covering its contents.
